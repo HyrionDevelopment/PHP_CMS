@@ -1,0 +1,3 @@
+{images}
+{name}<br />
+{/images}

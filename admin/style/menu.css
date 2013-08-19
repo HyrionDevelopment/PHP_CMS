@@ -1,0 +1,149 @@
+@charset "utf-8";
+/* CSS Document */
+
+p, h1, form, button{border:0; margin:0; padding:0;}
+	.spacer{clear:both; height:1px;}
+	/* ----------- My Form ----------- */
+	.myform
+	{
+		margin:0 auto;
+		width:400px;
+		padding:14px;
+		font-family:"Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
+		font-size:12px;
+	}
+
+	/* ----------- stylized ----------- */
+	#stylized{
+	border:solid 2px #b7ddf2;
+	background:#ebf4fb;
+	}
+	#stylized h1 {
+	font-size:14px;
+	font-weight:bold;
+	margin-bottom:8px;
+	}
+	#stylized p{
+	font-size:11px;
+	color:#666666;
+	margin-bottom:20px;
+	border-bottom:solid 1px #b7ddf2;
+	padding-bottom:10px;
+	}
+	#stylized label{
+	display:block;
+	font-weight:bold;
+	text-align:right;
+	width:140px;
+	float:left;
+	}
+	#stylized .small{
+	color:#666666;
+	display:block;
+	font-size:11px;
+	font-weight:normal;
+	text-align:right;
+	width:140px;
+	}
+	#stylized input{
+	float:left;
+	font-size:12px;
+	padding:4px 2px;
+	border:solid 1px #aacfe4;
+	width:200px;
+	margin:2px 0 20px 10px;
+	}
+	#stylized button{
+	clear:both;
+	margin-left:150px;
+	width:125px;
+	height:31px;
+	background:#666666 url(img/button.png) no-repeat;
+	text-align:center;
+	line-height:31px;
+	color:#FFFFFF;
+	font-size:11px;
+	font-weight:bold;
+	}
+	
+	
+	#header_line2
+{
+	background: #0477bf;
+	height: 15px;
+	width: auto;
+}
+	
+#header_line
+{
+	background: #7abaf2;
+	height: 4px;
+	width: auto;
+}
+	
+	
+	
+	
+#header_menu
+{
+	margin: 0;
+	padding: 0
+}
+	
+#header_menu li
+{
+	float: left;
+	list-style: none;
+	font-size: 10pt;
+	font-family: Verdana, Geneva, sans-serif;
+	text-align:center;
+}
+
+#header_menu li a
+{	
+	display: block;
+	background: #0477bf;
+	padding: 8px 7px 7px 8px;
+	text-decoration: none;
+	color: #FFF;
+	white-space: nowrap
+	text-align:center;
+	margin-right: 5px;
+}
+
+#current
+{
+	background: #05598e;
+	padding: 8px 7px 7px 8px;
+	margin-right: 5px;
+	color: #FFF;
+}
+	
+#header_menu li a:hover
+{	
+	background: #11669c;
+}
+	
+	#header_menu li ul
+	{	
+		margin: 0;
+		padding: 0;
+		position: absolute;
+		visibility: hidden;
+	}
+		
+	#header_menu li ul li
+	{	
+		float: none;
+		display: inline;
+	}
+		
+	#header_menu li ul li a
+	{
+		background: #1583c8;
+	}
+		
+	#header_menu li ul li a:hover
+	{	
+		background: #11669c;
+	}

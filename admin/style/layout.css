@@ -1,0 +1,124 @@
+@charset "utf-8";
+/* CSS Document */
+
+html, body {
+  	height: 100%;
+}
+body {
+  	padding-top: 40px;
+}
+.container
+{
+  	margin-left: 10px;
+    width: 100%;
+}
+#container{
+  	width: 100%;
+}
+.sidebar-left-menu
+{
+	float: left;
+	clear: both;
+	min-height: 100%;
+	width: 13%;
+	background: #ececec;
+	border-right: 1px solid #ccc;
+  margin-right: 10px;
+}
+.brand2
+{
+  	padding: 0px;
+  	float: left;
+  	color: #999999;
+}
+.brand2 a:hover
+{
+  	color: #FFF;
+}
+ul
+{ 
+  	padding: 0px;
+  	margin: 0px;
+  	list-style: none;
+}
+ul .search
+{
+  	padding-left: 15px;
+  	padding-top: 10px;
+  	padding-bottom: 10px;
+}
+.sidebar-left-menu .search
+{
+  	background: #ececec;
+  	padding-left: 10px;
+	padding-top: 9px;
+}
+.sidebar-left-menu ul li
+{
+	font-size: 10pt;
+  	padding-left: 15px;
+    -webkit-border-radius: 5px;
+  	-moz-border-radius: 5px;
+  	-ms-border-radius: 5px;
+  	border-radius: 5px;
+  	padding-top: 2px;
+  	padding-bottom: 2px;
+}
+.sidebar-left-menu ul li:hover{
+  	background: #ededed;
+}
+.sidebar-left-menu ul .active
+{
+  	font-weight: bold;
+}
+.sidebar-left-menu a
+{
+	color: #333;
+}
+.accordion-group
+{
+	border-top:0px;
+	margin-bottom: 0px;
+	background: #e0e0e0;
+	border-bottom: #ccc 1px solid;
+	webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+}
+.accordion-body
+{
+  	background: #fafafa;
+}
+.accordion-inner
+{
+  	border-top: #CCC 1px solid;
+}
+.menu_li
+{
+  	border-top: #ccc 1px solid;
+}
+.sp-sys
+{
+  	font-weight: bold;
+}
+
+.app_title
+{
+  display: block;
+  width: 100%;
+  padding: 0;
+  font-size: 21px;
+  line-height: 40px;
+  color: #333333;
+  border: 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.breadcrumbs
+{
+  display: block;
+  width: 100%;
+  padding: 0;
+  line-height: 40px;
+  border: 0;
+}

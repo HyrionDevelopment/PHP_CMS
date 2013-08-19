@@ -1,0 +1,1 @@
+<?phpclass CW_admin_load{	function model($model, $data = null)	{			if($data)		{	 		return new $model($data);		}		else		{			return new $model();		}	}}

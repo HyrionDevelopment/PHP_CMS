@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>CMSWire v2 - Comming soon</title>
+<script src="http://widgets.twimg.com/j/2/widget.js"></script>
+<style type="text/css">
+body
+{
+	margin: 0px 0px;
+}
+
+header
+{
+	margin: 0 auto;
+	background: url(images/header2.png) no-repeat;
+	width: 819px;
+	height: 355px;
+}
+
+.line
+{
+	background: #CCC;
+	width: auto;
+	height: 1px;
+	margin-left: 25px;
+	margin-right: 25px;
+	margin-top: 10px;
+}
+
+#tweets
+{
+	margin: 0 auto;
+	background:url(images/tweets.png) no-repeat;
+	width: 124px;
+	height: 34px;
+}
+#tweets-text
+{
+	margin: 0 auto;
+	width: 250px;
+	height: 300px;
+}
+
+#t_content
+{
+	margin: 0 auto;
+}
+</style>
+</head>
+
+<body>
+<header></header>
+<div class="line"></div>
+
+<table id="t_content">
+  <tr>
+    <th><div id="tweets"></div></th>
+    <th><h2>News</h2></th>
+  </tr>
+  <tr>
+    <td>
+	<script>
+new TWTR.Widget({
+  version: 2,
+  type: 'profile',
+  rpp: 10,
+  interval: 6000,
+  width: 250,
+  height: 300,
+  theme: {
+    shell: {
+      background: '#bdeaff',
+      color: '#2a69d4'
+    },
+    tweets: {
+      background: '#ffffff',
+      color: '#000000',
+      links: '#07c9eb'
+    }
+  },
+  features: {
+    scrollbar: true,
+    loop: false,
+    live: false,
+    hashtags: true,
+    timestamp: true,
+    avatars: false,
+    behavior: 'default'
+  }
+}).render().setUser('CMSWireNL').start();
+</script>
+</td>
+    <td><a href="http://demo.cmswire.nl/admin_shortcuts/">Demo: Admin shortcuts v1.0.1 Alpha</a></td>
+  </tr>
+</table>
+
+</body>
+</html>

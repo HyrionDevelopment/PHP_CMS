@@ -1,0 +1,1 @@
+<?phpabstract class Model_CMS{	var $load;	function __construct()	{		$this->load = new Load();	}}
