@@ -23,71 +23,7 @@ class hr_permissions
 		}
 		return $rank_id;
 	}
-	
-	/*
-	function check_app_permissions($app_name, $rank_id)
-	{
-		$mysql = new Mysql();
-		$dbh = DB_GetConnection();
-		if(isset($rank_id))
-		{
-			if(is_array($rank_id))
-			{
-				$arrayding = array();
-				foreach($rank_id as $val1)
-				{
-					foreach($val1 as $q1 => $q2)
-					{
-						//$sql1 = "SELECT * FROM ".DB_PREFIX."app_permissions WHERE app_name='".$app_name."' AND rank_id='".$q2."'";
-						
-						$sql1 = "SELECT * FROM ".DB_PREFIX."app_permissions WHERE app_name=:app_name AND rank_id=:rank_id";
-						$sth = $dbh->prepare($sql1);
-						$sth->bindValue(":app_name", $app_name, PDO::PARAM_STR);
-						$sth->bindValue(":rank_id", $q2, PDO::PARAM_INT);
-						$sth->execute();
-						
-						$row1 = $sth->fetch();
-						
-						if(!empty($row1))
-						{
-							
-						}else{
-							$arrayding[$q2] = 1;
-						}
-						
-						
-						
-						if($mysql->num_row($sql1))
-						{
-							$row = $mysql->assoc($sql1);
-							if($row['access'] == 1)
-							{
-								$arrayding[$q2] = 1;
-							}else{
-								$arrayding[$q2] = 0;
-							}
-						}else{
-							$arrayding[$q2] = 1;
-							//echo "numrow".$app_name ;
-						}
-					}
-				}
-				//print_r($rank_id);
-				$eentrue=0;
-				foreach($arrayding as $value){
-					$eentrue=$eentrue|$value;
-				}
-				if($eentrue){
-					return false;
-					
-				}else{
-					return true;
-				}
-			}
-		}
-	}
-	*/
-	
+
 	public function HR_Check_function_permissions($app,$class,$function)
 	{
 		/*

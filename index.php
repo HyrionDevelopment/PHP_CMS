@@ -1,19 +1,60 @@
 <?php
+
+	/**
+	* Hyrion CMS
+	* Copyright (C) 2013 Hyrion.com
+	*
+	* This program is free software; you can redistribute it and/or modify
+	* it under the terms of the GNU General Public License as published by
+	* the Free Software Foundation; either version 2 of the License, or
+	* (at your option) any later version.
+	* 
+	* This program is distributed in the hope that it will be useful,
+	* but WITHOUT ANY WARRANTY; without even the implied warranty of
+	* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	* GNU General Public License for more details.
+	*
+	* You should have received a copy of the GNU General Public License along
+	* with this program; if not, write to the Free Software Foundation, Inc.,
+	* 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+	*/
+
 //Benchmark meter
 $GLOBALS['x'] = microtime(true);
 
 class index
 {
+	/**
+	 * This variable is for checking the uri for reservations
+	 *
+	 * @since 2.0 beta build 1
+	 * @access private
+	 * @author Maarten Oosting
+	 */
 	var $reservation_uri = false;
 	var $reservation_cmsuri = false;
 	var $passUriCheck = false;
 	var $source_uri = '';
 	var $dest_uri = '';
 
+	/**
+	 * This variable is for set the app/controller/function to load
+	 *
+	 * @since 2.0 beta build 1
+	 * @access private
+	 * @author Maarten Oosting
+	 */
 	var $appToLoad = '';
 	var $controllerToLoad = '';
 	var $functionToLoad = '';
 
+	/**
+	 * This function start the cms
+	 *
+	 * @since 2.0 beta build 1
+	 * @access private
+	 * @author Maarten Oosting
+	 */
 	public function begin()
 	{
 		try
@@ -29,7 +70,7 @@ class index
 			//
 
 			//Include system and framework files
-			//This need realy a cleanup
+			//This need really a cleanup
 
 			//framework
 			require_once 'system/framework/hrf_appfolders.php';
@@ -110,24 +151,19 @@ class index
 			$permission_class = new hr_permissions();
 			$rank_id = $permission_class->get_rank_id();
 
-
-			//Checking permissions
-			if($permission_class->HR_Check_function_permissions($this->appToLoad, $this->controllerToLoad, $this->functionToLoad) == true)
-			{
-			
-			
-				//if($permission_class->check_app_permissions($URI_a['app'], $rank_id) == false)
-				//{
-					$lc = new Load_controller_class($this->appToLoad, $this->controllerToLoad, $this->functionToLoad);
+			$lc = new Load_controller_class($this->appToLoad, $this->controllerToLoad, $this->functionToLoad);
+			//Check app exist
+			if($lc->checkActionExist() == true) {
+				//Checking permissions
+				if($permission_class->HR_Check_function_permissions($this->appToLoad, $this->controllerToLoad, $this->functionToLoad) == true)
 					return $lc->load_function();
-				/*}else{
-					return "error! No Access!";
-				}*/
-				
-				
+				else
+					return "error! No Access!2";
+				//
 			}else{
-				return "error! No Access!2";
+				die('Error! Not Exist');
 			}
+			//
 			
 			
 		}
@@ -166,34 +202,7 @@ class index
 		}
 	}
 	
-	function include_app2()
-	{
-		$URI_index = new URI_index();
-		$URI_a = $URI_index->begin();
-		
-		//include controllers
-		$glob1 = glob("apps/".$URI_a['app']."/controllers/*.php");
-		if(count($glob1) > 0)
-		{
-			foreach($glob1 as $file_ti)
-			{
-				require_once $file_ti;
-			}
-		}
-				
-		//include models
-		$glob1 = glob("apps/".$URI_a['app']."/model/*.php");
-		if(count($glob1) > 0)
-		{
-			foreach($glob1 as $file_ti)
-			{
-				require_once $file_ti;
-			}
-		}
-	
-	}
-
-	function checkURI()
+	private function checkURI()
 	{
 		$URI_index = new URI_index();
 		$seg = $URI_index->get_segments();
@@ -222,7 +231,7 @@ class index
 		}
 	}
 
-	function include_app()
+	private function include_app()
 	{
 		$URI_index = new URI_index();
 		$URI_a = $URI_index->begin();
@@ -243,8 +252,8 @@ class index
 				$this->functionToLoad= $URI_a['actie'];
 				require_once $path;
 			}
-			else
-				throw new Exception("Error including controller", 237);
+			//else
+				//throw new Exception("Error including controller", 237);
 		}else{
 			$GLOBALS['redirect'] = true;
 			$ex = explode('/', $this->dest_uri);
@@ -284,7 +293,7 @@ class index
 		}
 	}
 	
-	function dump($in) 
+	public function dump($in) 
 	{
 		ob_start();
 		$out= "<pre>";
@@ -299,5 +308,8 @@ $start_index = new index;
 echo $start_index->begin();
 
 $temp = microtime(true) - $GLOBALS['x'];
-echo "<br /> $temp";
+echo PHP_EOL.'<!-- Page load time: $temp -->';
+echo PHP_EOL.'<!-- ';
+print_r($GLOBALS);
+echo ' -->';
 ?>

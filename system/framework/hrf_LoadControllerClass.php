@@ -5,14 +5,27 @@ class Load_controller_class
 	private $class;
 	private $function;
 	
-	function __construct($app, $class, $function) 
+	public function __construct($app, $class, $function) 
 	{
 		$this->app = $app;
 		$this->class = $class;
 		$this->function = $function;
 	}
+
+	public function checkActionExist()
+	{
+		$class = $this->app.'_'.$this->class;
+		if (class_exists($class)) {
+			$class_obj = new $class();
+			$method_var = array($class_obj, $this->function);
+			if(is_callable($method_var))
+				return true;
+		}
+
+		return false;
+	}
 	
-	function load_function()
+	public function load_function()
 	{
 		$this->class = $this->app . '_' . $this->class; 
 		if (class_exists($this->class))
