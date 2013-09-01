@@ -7,7 +7,7 @@ class Controller_CMS
 
 	function __construct()
 	{
-		require_once 'system/framework/hrf_load.php';
+		require_once 'system/framework/hrf_Load.php';
 		$this->load = new load();
 	}
 }

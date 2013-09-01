@@ -1,5 +1,7 @@
 <?php
+require_once 'system/hr_config_security.php';
 require_once 'system/config.php';
+
 $db_key = 0;
 
 function check_db_auto_connect()

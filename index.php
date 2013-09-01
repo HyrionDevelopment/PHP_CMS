@@ -1,5 +1,6 @@
 <?php
-
+ini_set('display_errors', 'On');
+error_reporting(E_ALL | E_STRICT);
 	/**
 	* Hyrion CMS
 	* Copyright (C) 2013 Hyrion.com
@@ -60,8 +61,8 @@ class index
 		try
 		{
 			//Stuff for in debug mode
-			ini_set('error_reporting', 'E_all');
-			ini_set('display_errors', 'On');
+			//ini_set('error_reporting', 'E_all');
+			//ini_set('display_errors', 'On');
 			//
 
 			//Starting session
@@ -73,15 +74,15 @@ class index
 			//This need really a cleanup
 
 			//framework
-			require_once 'system/framework/hrf_appfolders.php';
-			require_once 'system/framework/hrf_URI_index.php';
-			require_once 'system/framework/hrf_loadcontrollerclass.php';
-			require_once 'system/framework/hrf_controller.php';
-			require_once 'system/framework/hrf_model.php';
-			require_once 'system/framework/hrf_load.php';
+			require_once 'system/framework/hrf_AppFolders.php';
+			require_once 'system/framework/hrf_URI_Index.php';
+			require_once 'system/framework/hrf_LoadControllerClass.php';
+			require_once 'system/framework/hrf_Controller.php';
+			require_once 'system/framework/hrf_Model.php';
+			require_once 'system/framework/hrf_Load.php';
 			require_once 'system/settings.php';
 
-			require_once 'system/framework/hrf_login.php';
+			require_once 'system/framework/hrf_Login.php';
 
 			//style
 			require_once 'system/style/class.template_parser.php';
@@ -310,6 +311,6 @@ echo $start_index->begin();
 $temp = microtime(true) - $GLOBALS['x'];
 echo PHP_EOL.'<!-- Page load time: $temp -->';
 echo PHP_EOL.'<!-- ';
-print_r($GLOBALS);
+//print_r($GLOBALS);
 echo ' -->';
 ?>
