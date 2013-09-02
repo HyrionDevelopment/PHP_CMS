@@ -7,9 +7,9 @@ class hr_config_security {
 		$file = explode('\\', $file);
 		$counter = count($file);
 		$file = $file[$counter-2].'/'.$file[$counter-1];
-		if($file !== "system/db_init.php" && $called_class !== "Config")
+		if($file !== "system/db_init.php" || $called_class !== "Config")
 		{
-			die('Config security alert!!!'.$file);
+			die('Config security alert!!!');
 		}
 	}
 }
